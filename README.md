@@ -74,6 +74,14 @@ If you want to include an example to demonstrate usage of your component, the `/
 the place for that. Ideally, you only touch the JS-code, and leave the React Native 
 boilerplate as it is.
 
+To run it, first do an `npm install` from the `/example` folder, then `react-native link`. 
+For iOS simulators or Android, you can run `react-native run-ios` or `react-native run-android` 
+from the same folder. 
+
+To run on an iOS device, open the `/example/ios/HelloWorldExample.xcodeproj` 
+in XCode, select a development team for code signing (under the General tab of each target in the
+project settings), and hit ⌘+R.
+
 ## Publishing
 
 Once you have finished your components, you can run a normal `npm publish` from the root folder. The
