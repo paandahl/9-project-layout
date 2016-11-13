@@ -1,0 +1,5 @@
+rootProject.name = 'HelloWorldTests'
+
+include ':app'
+include ':react-native-hello-world'
+project(':react-native-hello-world').projectDir = new File(rootProject.projectDir, '../../android')

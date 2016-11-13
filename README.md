@@ -1,39 +1,36 @@
 # 9-projects-layout
 
-This is a boilerplate for redistributable React Native components and modules with native code
-(iOS & Android). It has unit tests for native code, and integration tests for running on emulators
-or devices.
+This is a boilerplate for distributable React Native components with native code
+(iOS & Android). It has unit tests for native code, and integration tests for automated testing
+on emulators or devices. The boilerplate example has a HelloWorld component, and a HelloWorld
+module backed by native code.
 
-When installed via npm, it also supports automatic linking of native code.
+When published and installed via npm, the resulting package supports automatic linking of the native 
+code. The contained package react-native-helloworld is published, and can be installed/linked like 
+this:
+
+    npm install react-native-helloworld
+    react-native link react-native-helloworld
 
 ## Explanation
 
-What is a 9 projects layout? It is, as a matter of fact, a project layout consisting of 9 
-individual sub-projects. But bear with me for a minute, it's not nearly as horrible as it sounds.
+For a full explanation of the layout, see 
+[this article](https://www.benwixen.com/articles/distributing-react-native-components-with-native-code).
 
-When you create a new React Native project, three different projects are created for you: the 
-JS-code, a Java-project (for Android) and an Objective C-project (for iOS). This layout has 
-three sets of those projects. The first set contains the component code:
+There are 3 sets of 3 projects (JS, Obj-C & Java). The first set is for the component code:
 
     /
     /android
     /ios
 
-Strictly speaking, this is the only set you need, but if you want your code base to stay stable and
- correct, you will want to add some tests. 
-Since RN components are normally bundled with all source code, we want to keep the  
-projects as simple as possible. To achieve this, we create a separate set of three projects for 
-testing:
+The second set is for unit- and integration tests:
 
     /tests
     /tests/android
     /tests/ios
     
-Since these projects link the component code directly, you can do all development from
-within these projects in XCode, Android Studio, Webstorm, etc. 
-
-The third set of projects are for a sample RN app, demonstrating the component / module in use.
-This is of course optional, but a nice feature to have if you want to expand your audience.
+The third set is just a sample project to demonstrate usage of the components. The Android and iOS
+parts are just the standard React Native boilerplate:
 
     /example
     /example/android
@@ -41,19 +38,43 @@ This is of course optional, but a nice feature to have if you want to expand you
 
 ## Development
 
-Like mentioned above, you can develop the component code through within the context of the 
-test-projects. This makes sense because they normally are developed in parallel, and because React 
-and React Native are peer dependencies of the main project 
-(meaning they need the context of an app to resolve in your Javascript IDE).
+For development of the component code, first run `npm install` in the `tests`-folder. Since the 
+native code is linked directly in the test-projects, they serve as a context you can develop it in
+(the root projects only link React/Native as peer dependencies). 
 
-## Unit testss
+### iOS
 
-The unit tests for iOS run through the standard XCTest framework. On Android they run using JUnit.
-The Javascript tests use jest.
+If you open `/tests/ios/HelloWorldTests.xcodeproj` in XCode, you can edit the native code and 
+unit tests side-by-side. You'll find the native code under `Libraries/HelloWorld.xcodeproj`. 
+Unit- and integration tests can be run together in the standard test-runner with ⌘+U.
 
-## Integration tests
+### Android
 
-The integration tests run on iOS through a custom React test runner (that is compatible with XCode).
-A test-runner for Android is not yet in place, but the tests can be run from the test app, by
-running it on an emulator / device.
-# 9-project-layout
+Open `/tests/android` in Android Studio, and you'll find both the native code and the unit tests
+in the project view. The unit tests can be run by right-clicking the package containing the tests,
+and choosing *Run Tests in tests*.
+
+There is not yet an automatic test runner for integration tests, but you can run them by firing up
+ `/tests` as a normal React Native app on an Android emulator or device, and selecting the tests 
+ manually from a list.
+
+### JS-code
+
+To develop the JS-components and the integration tests, just open `/tests` in your editor of choice 
+(f.ex. Atom or WebStorm). The JS-code can be edited from within the `/tests/symlinks`-folder.
+Integration tests are located under `/tests/integration-test`.
+
+There is a script `/tests/make-copies.sh` that copies the JS-code from the root project into a 
+folder `/tests/copies`. This is because the React Native packager doesn't follow symlinks. When 
+running the integration tests through XCode, this script is run automatically.
+
+### Example code
+
+If you want to include an example to demonstrate usage of your component, the `/example` folder is 
+the place for that. Ideally, you only touch the JS-code, and leave the React Native 
+boilerplate as it is.
+
+## Publishing
+
+Once you have finished your components, you can run a normal `npm publish` from the root folder. The
+`/tests` and `/example` folders are automatically excluded from the package.
