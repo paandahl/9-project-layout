@@ -22,6 +22,8 @@ public class HelloWorldPackage implements ReactPackage {
 
   @Override
   public List<ViewManager> createViewManagers(ReactApplicationContext reactContext) {
-    return Collections.emptyList();
+    return Collections.<ViewManager>singletonList(
+        new HelloWorldViewManager()
+    );
   }
 }

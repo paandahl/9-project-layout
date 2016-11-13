@@ -76,7 +76,7 @@ boilerplate as it is.
 
 To run it, first do an `npm install` from the `/example` folder, then `react-native link`. 
 For iOS simulators or Android, you can run `react-native run-ios` or `react-native run-android` 
-from the same folder. 
+from the same folder.
 
 To run on an iOS device, open the `/example/ios/HelloWorldExample.xcodeproj` 
 in XCode, select a development team for code signing (under the General tab of each target in the
