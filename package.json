@@ -2,7 +2,7 @@
   "name": "react-native-helloworld",
   "description": "Boilerplate for React Native components with native code.",
   "author": "Ben Wixen <benwixen@gmail.com>",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "main": "components/HelloWorld.js",
   "repository": {
     "type": "git",

@@ -1,4 +1,4 @@
-# 9-projects-layout
+# 9-project-layout
 
 This is a boilerplate for distributable React Native components with native code
 (iOS & Android). It has unit tests for native code, and integration tests for automated testing
