@@ -1,0 +1,8 @@
+tests
+example
+node_modules
+.babelrc
+.flowconfig
+.gitignore
+**/__mocks__/**
+**/__tests__/**

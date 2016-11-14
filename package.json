@@ -1,6 +1,6 @@
 {
   "name": "react-native-helloworld",
-  "description": "Boilerplate for React Native packages with native code.",
+  "description": "Boilerplate for React Native components with native code.",
   "author": "Ben Wixen <benwixen@gmail.com>",
   "version": "0.0.1",
   "main": "components/HelloWorld.js",

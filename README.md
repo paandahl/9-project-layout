@@ -2,12 +2,13 @@
 
 This is a boilerplate for distributable React Native components with native code
 (iOS & Android). It has unit tests for native code, and integration tests for automated testing
-on emulators or devices. The boilerplate example has a HelloWorld component, and a HelloWorld
-module backed by native code.
+on emulators or devices. The boilerplate contains a simple HelloWorld component that is backed
+ by native code.
+
+![](https://storage.googleapis.com/benwixen-site/rn_packages2.png)
 
 When published and installed via npm, the resulting package supports automatic linking of the native 
-code. The contained package react-native-helloworld is published, and can be installed/linked like 
-this:
+code. You can install and link the HelloWorld component like this:
 
     npm install react-native-helloworld
     react-native link react-native-helloworld
@@ -54,24 +55,29 @@ Open `/tests/android` in Android Studio, and you'll find both the native code an
 in the project view. The unit tests can be run by right-clicking the package containing the tests,
 and choosing *Run Tests in tests*.
 
-There is not yet an automatic test runner for integration tests, but you can run them by firing up
- `/tests` as a normal React Native app on an Android emulator or device, and selecting the tests 
- manually from a list.
+There is not yet an automatic test runner for integration tests on Android, but you can run them by 
+firing up `/tests` as a normal React Native app on an Android emulator or device, and selecting the 
+tests  manually from a list.
 
 ### JS-code
 
 To develop the JS-components and the integration tests, just open `/tests` in your editor of choice 
-(f.ex. Atom or WebStorm). The JS-code can be edited from within the `/tests/symlinks`-folder.
+(f.ex. Atom or WebStorm). The `/tests/symlinks`-folder links in the code from the root projects
+for convenience.
 Integration tests are located under `/tests/integration-test`.
 
 There is a script `/tests/make-copies.sh` that copies the JS-code from the root project into a 
 folder `/tests/copies`. This is because the React Native packager doesn't follow symlinks. When 
 running the integration tests through XCode, this script is run automatically.
 
+Since this project aims to demonstrate native code bundling, we haven't included any unit-tests
+for the JS components. But if you add Jest-tests, they're automatically excluded from the npm
+bundle.
+
 ### Example code
 
-If you want to include an example to demonstrate usage of your component, the `/example` folder is 
-the place for that. Ideally, you only touch the JS-code, and leave the React Native 
+The `/example` folder contains a React Native app that demonstrates usage of your components. 
+Ideally, you only touch the JS-code, and leave the React Native 
 boilerplate as it is.
 
 To run it, first do an `npm install` from the `/example` folder, then `react-native link`. 
