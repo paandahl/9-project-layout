@@ -4,6 +4,10 @@
   "author": "Ben Wixen <benwixen@gmail.com>",
   "version": "0.0.1",
   "main": "components/HelloWorld.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/benwixen/9-projects-layout"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
