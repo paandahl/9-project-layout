@@ -12,7 +12,7 @@ code. You can install and link the HelloWorld component like this:
 
     npm install react-native-helloworld
     react-native link react-native-helloworld
-
+    
 ## Explanation
 
 For a full explanation of the layout, see 
@@ -92,3 +92,14 @@ project settings), and hit ⌘+R.
 
 Once you have finished your components, you can run a normal `npm publish` from the root folder. The
 `/tests` and `/example` folders are automatically excluded from the package.
+
+Once installed and linked in a project, your components can easily be imported:
+
+````javascript
+import HelloWorld from 'react-native-helloworld';
+
+function MyComponent() {
+  return <HelloWorld />; 
+}
+````
+
