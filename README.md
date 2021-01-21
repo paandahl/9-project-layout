@@ -16,7 +16,7 @@ code. You can install and link the HelloWorld component like this:
 ## Explanation
 
 For a full explanation of the layout, see 
-[this article](https://www.benwixen.com/articles/distributing-react-native-components-with-native-code).
+[this article](https://medium.com/@benwixen/distributing-react-native-components-with-native-code-ea5c1058a1c9).
 
 There are 3 sets of 3 projects (JS, Obj-C & Java). The first set is for the component code:
 
